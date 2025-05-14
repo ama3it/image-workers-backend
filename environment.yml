@@ -1,0 +1,18 @@
+name: virtspacey
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - fastapi
+  - uvicorn
+  - pydantic
+  - sqlalchemy
+  - python-dotenv
+  - pytest
+  - pip
+  - pip:
+      - uvicorn[standard]
+      - passlib[bcrypt]
+      - httpx
+      - alembic
