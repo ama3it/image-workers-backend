@@ -1,4 +1,4 @@
-name: virtspacey
+name: virtspace
 channels:
   - conda-forge
   - defaults
@@ -8,6 +8,7 @@ dependencies:
   - uvicorn
   - pydantic
   - sqlalchemy
+  - asyncpg
   - python-dotenv
   - pytest
   - pip
@@ -16,3 +17,6 @@ dependencies:
       - passlib[bcrypt]
       - httpx
       - alembic
+      - supabase
+      - pydantic-settings
+      - python-jose
