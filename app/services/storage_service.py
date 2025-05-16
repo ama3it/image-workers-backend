@@ -2,6 +2,7 @@ import os
 import uuid
 from typing import BinaryIO, Optional, Tuple
 import httpx
+import requests
 from fastapi import UploadFile, HTTPException, status
 from app.config import settings
 
@@ -100,4 +101,40 @@ class StorageService:
             return True
         except Exception as e:
             print(f"Error deleting file: {str(e)}")
+            return False
+    
+    def download_file_sync(self, file_path: str) -> bytes:
+        """
+        Synchronously download a file from Supabase Storage.
+        Returns the file content as bytes.
+        """
+        try:
+            response = requests.get(
+                f"{self.url}/storage/v1/object/{self.bucket_name}/{file_path}",
+                headers=self.headers
+            )
+            response.raise_for_status()
+            return response.content
+        except Exception as e:
+            print(f"Error downloading file: {str(e)}")
+            return b""
+    
+    def upload_bytes_sync(self, file_bytes: bytes, file_path: str, content_type: str = "application/octet-stream") -> bool:
+        """
+        Synchronously upload bytes to Supabase Storage.
+        Returns True if upload is successful, False otherwise.
+        """
+        try:
+            response = requests.post(
+                f"{self.url}/storage/v1/object/{self.bucket_name}/{file_path}",
+                headers={
+                    **self.headers,
+                    "Content-Type": content_type
+                },
+                data=file_bytes
+            )
+            response.raise_for_status()
+            return True
+        except Exception as e:
+            print(f"Error uploading bytes: {str(e)}")
             return False

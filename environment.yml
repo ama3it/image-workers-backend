@@ -11,6 +11,8 @@ dependencies:
   - asyncpg
   - python-dotenv
   - pytest
+  - pillow
+  - requests
   - pip
   - pip:
       - uvicorn[standard]
@@ -20,3 +22,5 @@ dependencies:
       - supabase
       - pydantic-settings
       - python-jose
+      - celery[redis]
+      - psycopg2-binary

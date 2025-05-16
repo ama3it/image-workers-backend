@@ -47,14 +47,10 @@ class ImageResponse(BaseModel):
     label: str
     image_type: str
     note: Optional[str] = None
-    priority: str
     user_id: UUID4
-    image_url: str
-    status: ImageStatus
     created_at: datetime
     updated_at: datetime
-    job_type: JobType
-    final_image_url: Optional[str] = None
+    storage_path: str
 
     class Config:
         from_attributes = True
