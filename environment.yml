@@ -23,4 +23,4 @@ dependencies:
       - pydantic-settings
       - python-jose
       - celery[redis]
-      - psycopg2-binary
+      - razorpay

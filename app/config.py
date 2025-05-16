@@ -1,3 +1,4 @@
+
 from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
@@ -10,8 +11,11 @@ class Settings(BaseSettings):
     SUPABASE_BUCKET: str
     SUPABASE_AUTH_JWKS_URL: str
     SUPABASE_PROJECT_ID: str
-
+    
+    RAZORPAY_KEY_SECRET:str
+    RAZORPAY_KEY_ID: str
     DATABASE_URL: str
+    
     sql_echo: bool = False
     db_pool_size: int = 5
     db_max_overflow: int = 10

@@ -25,7 +25,7 @@ async def upload_image(
     priority: str = Form(...),
     job_type: JobType = Form(...),
     db: AsyncSession = Depends(get_db),
-    user: dict = Depends(supabaseauth.get_current_user)  # Add this line
+    user: dict = Depends(supabaseauth.get_current_user) 
 ):
     """
     Upload an image, store metadata, create a processing job, and enqueue a task
