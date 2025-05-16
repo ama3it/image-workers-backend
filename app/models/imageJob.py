@@ -8,6 +8,8 @@ import enum
 class ImageStatus(str, enum.Enum):
     UPLOADED = "uploaded"
     QUEUED = "queued"
+    PENDING_PAYMENT="pending_payment"
+    PAYMENT_FAILED = "payment_failed"
     PROCESSING = "processing"
     COMPLETED = "completed"
     FAILED = "failed"
